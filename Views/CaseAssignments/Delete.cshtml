@@ -1,0 +1,65 @@
+﻿@model EMPMGMT.Models.CaseAssignment
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CaseAssignment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompeletionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompeletionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerCas.OrderNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerCas.OrderNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.FName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

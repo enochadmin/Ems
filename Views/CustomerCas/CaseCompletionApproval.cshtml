@@ -1,0 +1,57 @@
+﻿@model IEnumerable<EMPMGMT.Models.CaseAssignment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Case Approval</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AssignedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompeletionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerCas.OrderNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.FName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompeletionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerCas.Customer.FName)  @Html.DisplayFor(modelItem => item.CustomerCas.Customer.LName) ( @Html.DisplayFor(modelItem => item.CustomerCas.Customer.Phone))  @Html.DisplayFor(modelItem => item.CustomerCas.Service.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.FName)
+            </td>
+            <td>
+                @Html.ActionLink("Approve Case", "ApproveCase", new { id = item.CustomerCaseId }) |
+              
+            </td>
+        </tr>
+    }
+
+</table>
+

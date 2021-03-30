@@ -1,0 +1,73 @@
+﻿@model IEnumerable<EMPMGMT.Models.CaseAssignment>
+@using EMPMGMT.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    EMPMGMTEntities _entity = new EMPMGMTEntities();
+}
+
+<section class="content-header">
+    <h1>
+        Case Assignation
+        <small>for Employee's</small>
+    </h1>
+
+</section>
+
+
+<h2>Assign Tasks</h2>
+@if (Session["role"].ToString() == "Head")
+{
+    <a href="~/CaseAssignments/Create" class="btn btn-primary" style="margin-left:40%;">Create new</a>
+}
+    @**@<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompeletionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerCas.OrderNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee.FName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @{
+                        var headName = _entity.Employees.Where(e => e.Id == item.AssignedBy).FirstOrDefault();
+                    }
+                    @headName.FName @headName.LName
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompeletionDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerCas.Customer.FName)  @Html.DisplayFor(modelItem => item.CustomerCas.Customer.LName) ( @Html.DisplayFor(modelItem => item.CustomerCas.Customer.Phone))  @Html.DisplayFor(modelItem => item.CustomerCas.Service.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.FName)
+                </td>
+              @*  <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>*@
+            </tr>
+        }
+
+    </table>
+    @**@

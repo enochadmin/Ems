@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="box box-primary">
+    <div class="box-body box-profile">
+        <img class="profile-user-img img-responsive img-circle" src="~/Content/images/default.png" alt="User profile picture">
+
+        <h3 class="profile-username text-center">@Session["FirtName"] @Session["FatherName"]</h3>
+
+        <p class="text-muted text-center">@Session["role"]</p>
+
+        <ul class="list-group list-group-unbordered">
+
+            <li class="list-group-item">
+                <b>First Name</b> <a class="pull-right">@Session["FirstName"]</a>
+            </li>
+
+            <li class="list-group-item">
+                <b>Last Name</b> <a class="pull-right">@Session["LastName"]</a>
+            </li>
+
+
+            <li class="list-group-item">
+                <b>Phone Number</b> <a class="pull-right">@Session["phone"]</a>
+            </li>
+            <li class="list-group-item">
+                <b>Email </b> <a class="pull-right">@Session["email"]</a>
+            </li>
+            <li class="list-group-item">
+                <b>Address</b> <a class="pull-right">@Session["address"]</a>
+            </li>
+        </ul>
+
+        <a href="#" class="btn btn-primary btn-block"><b>Currently Active</b></a>
+    </div>
+    <!-- /.box-body -->
+</div>

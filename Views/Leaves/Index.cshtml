@@ -1,0 +1,85 @@
+﻿@model IEnumerable<EMPMGMT.Models.Leaf>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+       Leave List
+        <small>Index</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Index</a></li>
+
+        <li class="active">Leave Management</li>
+    </ol>
+</section>
+
+@*<a href="~/Leaves/Create" class="btn btn-primary" style="margin-left:40%;">Create</a>*@
+
+<div class="col-md-12">
+    <!-- general form elements -->
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title" style="margin-left:40%;">Leave Management</h3>
+        </div>
+        <table id="tbl" class="table table-bordered table-striped table-responsive">
+            <thead>
+
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DateFrom)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DateTo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Remark)
+                        </th>
+                        @*  <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.Employee.FName)
+                        </th>
+                        <th>
+                            Remark
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateFrom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateTo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Remark)
+                        </td>
+                        @* <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Employee.FName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Remark)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Approve", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Deny", "Details", new { id = item.Id }) |
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+                </table>
+        </div>
+    </div>

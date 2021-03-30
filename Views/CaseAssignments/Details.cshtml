@@ -1,0 +1,59 @@
+﻿@model EMPMGMT.Models.CaseAssignment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CaseAssignment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompeletionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompeletionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerCas.OrderNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerCas.OrderNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.FName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
